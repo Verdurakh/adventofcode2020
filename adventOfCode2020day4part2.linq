@@ -1,9 +1,5 @@
 <Query Kind="Program" />
 
-
-
-
-
 void Main()
 {
 
@@ -11,7 +7,7 @@ void Main()
 	var test = ReadMyFile(@"input4.txt");
 	//test.Dump();
 	var ports = ParsePassports(test);
-	ports.Dump();
+	//ports.Dump();
 	var count = 0;
 	foreach (var passport in ports)
 	{
@@ -183,11 +179,8 @@ class Passport
 	{
 		var eyes = new List<string>() {"amb","blu","brn","gry","grn","hzl","oth"};
 		
-		foreach (var eye in eyes)
-		{
-			if(eye==value)
-			return value;
-		}
+		if(eyes.Contains(value))
+		return value;
 		
 		
 		return null;
