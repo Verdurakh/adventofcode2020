@@ -14,7 +14,16 @@ void Main()
 
 	var missingId = FindMissingId(highestTicketId.OrderBy(w => w.SeatId).ToList());
 	missingId.Dump();
+	
+	PassToSeatId("BBFBBBFLRR").Dump(); // it was just a fucking binary SeatId! WTF!
 
+}
+
+public int PassToSeatId(string pass)
+{
+	pass = pass.Replace('F', '0').Replace('B', '1').Replace('L', '0').Replace('R', '1');
+	pass.Dump();
+	return Convert.ToInt32(pass, 2);
 }
 
 private int FindMissingId(List<Ticket> tickets)
