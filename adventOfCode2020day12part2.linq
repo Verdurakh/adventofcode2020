@@ -1,6 +1,6 @@
 <Query Kind="Program" />
 
-bool live = false;
+bool live = true;
 List<Instruction> numbers;
 const char MOVE_FORWARD = 'F';
 const char MOVE_NORTH = 'N';
@@ -70,6 +70,10 @@ void FollowInstructions(Instruction instruction)
 private void RotateWaypoint(double degrees)
 {
 	($"Rotate waypoint from x:{wayX} y:{wayY}").Dump();
+	if(degrees==270)
+	degrees=-90;
+	if(degrees==-270)
+	degrees=90;
 	if (degrees > 0)
 	{
 		if (degrees == 90)
